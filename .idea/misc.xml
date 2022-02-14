@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/drawable/side_nav_bar.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/activity_main.xml" value="0.26856884057971014" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/add_room.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/app_bar_main.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/content_main.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/fragment_check_in.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/fragment_room_card.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/fragment_user.xml" value="0.371875" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/layout/nav_header_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/galar/AndroidStudioProjects/PIRApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.371875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

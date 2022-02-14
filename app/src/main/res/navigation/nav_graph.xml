@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/userFragment">
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.iotproject.hotel.UserFragment"
+        android:label="UserFragment" >
+        <action
+            android:id="@+id/action_userFragment_to_checkInFragment"
+            app:destination="@id/checkInFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkInFragment"
+        android:name="com.iotproject.hotel.CheckInFragment"
+        android:label="CheckInFragment" >
+        <action
+            android:id="@+id/action_checkInFragment_to_roomCardFragment"
+            app:destination="@id/roomCardFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomCardFragment"
+        android:name="com.iotproject.hotel.RoomCardFragment"
+        android:label="RoomCardFragment" />
+</navigation>

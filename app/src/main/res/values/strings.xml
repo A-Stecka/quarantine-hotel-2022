@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Hotel</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">John Smith</string>
+    <!--<string name="nav_header_subtitle"></string>-->
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="home">Home</string>
+    <string name="room_and_card">Room &amp; card</string>
+
+    <string name="nameLabel">Name</string>
+    <string name="surnameLabel">Surname</string>
+    <string name="documentLabel">Document</string>
+    <string name="phoneLabel">Phone</string>
+    <string name="emailLabel">E-mail</string>
+    <string name="addressLabel">Home address</string>
+    <string name="cityLabel">City</string>
+    <string name="codeLabel">Zip code</string>
+    <string name="countryLabel">Country</string>
+
+    <string name="check_in">Check in</string>
+    <string name="check_in_room">Check in to room</string>
+    <string name="save">Save</string>
+    <string name="add_room_info">Enter token provided by hotel staff</string>
+    <string name="your_card">Your card</string>
+    <string name="your_room">Your room</string>
+    <string name="block">Block</string>
+    <string name="check_out">Check out</string>
+    <string name="token">Token</string>
+
+    <string name="user_description">User icon</string>
+    <string name="phone_description">Phone icon</string>
+    <string name="message_description">Message icon</string>
+    <string name="home_description">Home icon</string>
+    <string name="card_description">Card icon</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/yourRoomText"
+        android:text="@string/your_room"
+        android:textSize="40sp"
+        android:textColor="@color/blue_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roomNumberText"
+        tools:text="123"
+        android:textSize="40sp"
+        android:textColor="@color/blue_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourRoomText"
+        app:layout_constraintBottom_toTopOf="@id/checkOutButton"/>
+
+    <Button
+        android:id="@+id/checkOutButton"
+        android:text="@string/check_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/roomNumberText"
+        app:layout_constraintBottom_toTopOf="@id/yourCardText"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/yourCardText"
+        android:text="@string/your_card"
+        android:textSize="40sp"
+        android:textColor="@color/blue_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkOutButton"
+        app:layout_constraintBottom_toTopOf="@id/cardImage" />
+
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_card"
+        android:contentDescription="@string/card_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourCardText"
+        app:layout_constraintBottom_toTopOf="@id/blockCardButton" />
+
+    <Button
+        android:id="@+id/blockCardButton"
+        android:text="@string/block"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
