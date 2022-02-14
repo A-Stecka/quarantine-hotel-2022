@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>Assign RFID to room</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+
+<!-- Include Bootstrap for styling -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- Include the Bootstrap Table CSS
+for the table -->
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="roominfo.html">Room info</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="searchguests.html">Search guests</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="assignrfidtoroom.html">Assign RFID to room</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<nav class="navbar navbar-light ">
+		<div class="container-fluid">
+			<div class="d-flex">
+				<select id="rooms-dropdown" name="rooms" class="form-control me-2" type="text"
+					aria-label="Search"></select>
+
+			</div>
+		</div>
+	</nav>
+
+	<nav class="navbar navbar-light ">
+		<div class="container-fluid">
+			<div class="d-flex">
+				<select id="rfids-dropdown" name="rfids" class="form-control me-2" type="text"
+					aria-label="Search"></select>
+				<input id="SaveBtn" class="btn btn-outline-success" type="submit" value="Save">
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- Include jQuery and other required
+files for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	</script>
+
+	<!-- Include the JavaScript file
+for Bootstrap table -->
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js">
+	</script>
+
+	<script type="text/javascript">
+
+		let dropdownRfids = document.getElementById('rfids-dropdown');
+		dropdownRfids.length = 0;
+
+		let defaultOption = document.createElement('option');
+		defaultOption.text = 'Choose RFID';
+
+		dropdownRfids.add(defaultOption);
+		dropdownRfids.selectedIndex = 0;
+
+		const url = 'http://localhost:8080/api/getRfids';
+
+		fetch(url, {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(
+				function (response) {
+					if (response.status !== 200) {
+						console.warn('Looks like there was a problem. Status Code: ' +
+							response.status);
+						return;
+					}
+
+					response.json().then(function (data) {
+						let option;
+
+						for (let i = 0; i < data.length; i++) {
+							option = document.createElement('option');
+							option.text = data[i].RFID_no;
+							option.value = data[i].id;
+							dropdownRfids.add(option);
+						}
+					});
+				}
+			)
+			.catch(function (err) {
+				console.error('Fetch Error -', err);
+			});
+
+
+
+		let dropdownRooms = document.getElementById('rooms-dropdown');
+		dropdownRooms.length = 0;
+
+		let defaultOptionRooms = document.createElement('option');
+		defaultOptionRooms.text = 'Choose room';
+
+		dropdownRooms.add(defaultOptionRooms);
+		dropdownRooms.selectedIndex = 0;
+
+		const urlRooms = 'http://localhost:8080/api/getRooms';
+
+		fetch(urlRooms, {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(
+				function (response) {
+					if (response.status !== 200) {
+						console.warn('Looks like there was a problem. Status Code: ' +
+							response.status);
+						return;
+					}
+
+					response.json().then(function (data) {
+						let option;
+
+						for (let i = 0; i < data.length; i++) {
+							optionRoom = document.createElement('option');
+							optionRoom.text = data[i];
+							optionRoom.value = data[i];
+							dropdownRooms.add(optionRoom);
+						}
+					});
+				}
+			)
+			.catch(function (err) {
+				console.error('Fetch Error -', err);
+			});
+
+
+		const btn = document.getElementById("SaveBtn");
+		btn.onclick = function () {
+
+			$(document).ready(function () {
+
+				var selectedRfid = document.getElementById('rfids-dropdown');
+				var rfidValue = selectedRfid.options[selectedRfid.selectedIndex].value;
+				var selectedRoom = document.getElementById('rooms-dropdown');
+				var roomValue = selectedRoom.options[selectedRoom.selectedIndex].value;
+
+				var data = { "room_id": roomValue, "rfid_id": rfidValue };
+
+				var jsonResponseApi = fetch('http://localhost:8080/api/addRifdToRoom', {
+					method: "POST",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data)
+				}).then(response => response.json());
+
+				jsonResponseApi.then(function (data) {
+					var tokenForGuest = data.token;
+					const e = document.createElement('div');
+					e.setAttribute("id", "message");
+					e.innerHTML = 'Token for guest: ';
+					document.body.appendChild(e);
+					var textnode = document.createTextNode(tokenForGuest);
+					e.appendChild(textnode);
+				});
+
+			});
+
+		};
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+    client:
+       container_name: gate1
+       build: client
+       restart: 'always'
+       environment:
+        - PYTHONUNBUFFERED=0
+       expose:
+        - "8883"
+       entrypoint:
+        - "sleep"
+        - "1d"

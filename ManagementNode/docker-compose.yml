@@ -1,0 +1,75 @@
+version: '3'
+
+services:
+
+  broker:
+    container_name: mqtt_broker
+    build: broker
+    ports:
+      - "8883:8883"
+    networks:
+      - backend
+    
+  mariadb:
+    container_name: database
+    image: mariadb:10.2
+    restart: 'always'
+    volumes: 
+      - ./database/data:/var/lib/mysql
+      - ./database/logs:/var/log/mysql
+      - ./database/conf:/etc/mysql
+      - ./database/scripts:/home/src
+    environment:
+      MYSQL_ROOT_PASSWORD: "p@ss_123"
+      MYSQL_DATABASE: "hotel"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "p@ss"
+    networks:
+      - backend
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=p@ss_123"
+      interval: 2s
+      timeout: 20s
+      retries: 10
+        
+  mgmt:
+    container_name: mgmt
+    build: api
+    restart: 'always'
+    volumes:
+      - ./api/code:/code/app
+    environment:
+      - PYTHONUNBUFFERED=0
+    networks:
+      - backend
+    expose:
+      - "80" 
+    entrypoint:
+      - "uvicorn"
+      - "app.api:app"
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "80"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+ 
+      
+  webserver:
+    container_name: webserver
+    image: nginx:latest
+    volumes: 
+      - ./webserver/nginx:/etc/nginx
+      - ./webserver/www:/var/www
+    ports:
+      - "8080:80"
+    networks:
+        - backend
+    depends_on:
+      - mgmt
+ 
+networks:    
+    backend:
+        driver: bridge
+  

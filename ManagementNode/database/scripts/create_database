@@ -1,0 +1,69 @@
+DROP DATABASE IF EXISTS hotel;
+
+CREATE DATABASE hotel;
+
+USE hotel;
+
+CREATE TABLE Guests (
+id          int(10) NOT NULL AUTO_INCREMENT, 
+password 	varchar(45) NOT NULL,
+name        varchar(45) NOT NULL, 
+surname     varchar(45) NOT NULL, 
+document_no varchar(45) NOT NULL, 
+phone_no    int(10) NOT NULL, 
+email       varchar(45) NOT NULL UNIQUE, 
+address     varchar(45) NOT NULL, 
+zip_code    varchar(45) NOT NULL, 
+city        varchar(45) NOT NULL, 
+FK_country  int(10) NOT NULL, 
+PRIMARY KEY (id));
+  
+CREATE TABLE Rooms (
+number int(10) NOT NULL AUTO_INCREMENT, 
+PRIMARY KEY (number));
+  
+CREATE TABLE RFIDs (
+id      int(10) NOT NULL AUTO_INCREMENT, 
+RFID_no varchar(10) NOT NULL, 
+status  tinyint NOT NULL, 
+PRIMARY KEY (id));
+  
+CREATE TABLE Countries (
+id   int(10) NOT NULL AUTO_INCREMENT, 
+name varchar(45) NOT NULL UNIQUE, 
+PRIMARY KEY (id));
+  
+CREATE TABLE CheckIns (
+id         int(10) NOT NULL AUTO_INCREMENT, 
+FK_room    int(10) NOT NULL, 
+FK_guest   int(10) NOT NULL, 
+FK_rfid    int(10) NOT NULL, 
+validSince datetime NOT NULL, 
+validUntil datetime NULL, 
+PRIMARY KEY (id));
+  
+CREATE TABLE Tokens (
+id         int(10) NOT NULL AUTO_INCREMENT, 
+FK_room    int(10) NOT NULL, 
+FK_rfid    int(10) NOT NULL, 
+status     tinyint DEFAULT 1 NOT NULL, 
+created datetime NOT NULL, 
+PRIMARY KEY (id));
+  
+ALTER TABLE Guests ADD CONSTRAINT 
+FKGuests400793 FOREIGN KEY (FK_country) REFERENCES Countries (id);
+
+ALTER TABLE CheckIns ADD CONSTRAINT 
+FKCheckIns811411 FOREIGN KEY (FK_guest) REFERENCES Guests (id);
+
+ALTER TABLE CheckIns ADD CONSTRAINT 
+FKCheckIns469541 FOREIGN KEY (FK_room) REFERENCES Rooms (number);
+
+ALTER TABLE CheckIns ADD CONSTRAINT 
+FKCheckIns569952 FOREIGN KEY (FK_rfid) REFERENCES RFIDs (id);
+
+ALTER TABLE Tokens ADD CONSTRAINT 
+FKTokens606278 FOREIGN KEY (FK_room) REFERENCES Rooms (number);
+
+ALTER TABLE Tokens ADD CONSTRAINT 
+FKTokens264901 FOREIGN KEY (FK_rfid) REFERENCES RFIDs (id);

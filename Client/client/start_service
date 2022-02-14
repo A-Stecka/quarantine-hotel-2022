@@ -1,0 +1,2 @@
+#!/bin/bash
+python mqtt_connect.py $1 $2

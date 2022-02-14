@@ -1,0 +1,1 @@
+cmd /k "docker exec -it gate1 /bin/bash -c "bash start_service %1 %2""

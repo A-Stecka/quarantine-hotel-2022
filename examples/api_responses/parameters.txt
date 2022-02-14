@@ -1,0 +1,8 @@
+FOR Kowalski:
+{"surname": "Kowalski"}
+FOR Doe:
+{"surname": "Doe"}
+
+adress:
+http://<web_server_ip>:8080/api/findGuest
+POST request

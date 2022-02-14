@@ -1,0 +1,59 @@
+USE hotel;
+
+INSERT INTO Countries (name) VALUES
+('Afghanistan'),
+('Australia'),
+('Austria'),
+('Belgium'),
+('Colombia'),
+('Croatia'),
+('Cuba'),
+('Czech Republic'),
+('Denmark'),
+('Faroe Islands'),
+('Germany'),
+('Greenland'),
+('Italy'),
+('Norway'),
+('Poland'),
+('Slovakia'),
+('Slovenia'),
+('Switzerland'),
+('Ukraine'),
+('United Kingdom'),
+('United States');
+
+INSERT INTO Guests (email, password, name, surname, document_no, phone_no, address, zip_code, city, FK_country) VALUES
+('john.doe@gmail.com', 'p@ssw0rd', 'John', 'Doe', 'ABC123456', 123456789, '55 Gresham St', 'E1 7AY', 'London', 20),
+('jan.kowalski@cybernet.com.pl', 'p@ssw0rd', 'Jan', 'Kowalski', 'DEF346293', 948374348, 'Strumykowa 15', '51-348', 'Wroclaw', 15),
+('k.karolina@gmail.com', 'p@ssw0rd', 'Karolina', 'Kowalska', 'WEC473028', 452838457, 'Powstancow Slaskich 78/2', '34-324', 'Warszawa', 15),
+('harmon.beth@gmail.com', 'p@ssw0rd', 'Beth', 'Harmon', 'DFC354282', 679123644, '445 Park Ave', '10022', 'New York', 21),
+('cedrone.e@gmail.com', 'p@ssw0rd', 'Enzo', 'Cedrone', 'VND232134', 594243484, 'Via dei Girasoli', '00172', 'Roma', 13);
+
+INSERT INTO Rooms VALUES 
+(),
+(),
+(),
+(),
+();
+
+INSERT INTO RFIDs (RFID_no, status) VALUES 
+('2344832389', 1),
+('3820433859', 1),
+('3326382912', 1),
+('0093023738', 0);
+
+INSERT INTO Tokens (FK_room, FK_rfid, status, created) VALUES
+	(1, 1, 1, '2022-01-10 18:30:56'),
+	(2, 4, 1, '2022-01-07 09:17:13'),
+	(3, 2, 1, '2022-01-07 12:10:18'),
+	(4, 3, 0, '2022-01-06 17:51:43');
+
+INSERT INTO CheckIns (FK_room, FK_guest, FK_rfid, validSince, validUntil) VALUES
+	(1, 1, 1, '2022-01-01 18:25:34', '2022-01-10 19:45:38'),
+	(1, 2, 3, '2021-12-10 06:17:23', '2021-12-20 10:05:45');
+
+INSERT INTO CheckIns (FK_room, FK_guest, FK_rfid, validSince) VALUES
+	(2, 1, 3, '2022-01-07 21:56:19'),
+	(4, 5, 2, '2022-01-06 17:18:59'),
+	(3, 4, 4, '2022-01-04 18:12:20');
