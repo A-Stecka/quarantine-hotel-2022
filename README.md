@@ -13,4 +13,4 @@ W ramach projektu zaprojektowano aplikacje webową i mobilną korzystające z ba
 -
 Branch main zawiera dokumentację projektu. Implementacja aplikacji mobilnej znajduje się w branchu mobile_app. Implementacja głównego węzła aplikacji (serwisy bazy danych, serwera aplikacji, brokera MQTT oraz serwera webowy) znajduje się w branchu management_node.
 -
-Projekt wykonany wspólnie z P. Walkowiakiem https://github.com/PawelWal, B. Tlołką https://github.com/Boguslawa-Tlolka oraz J. Wdziękońską https://github.com/JoannaWdziekonska.
+Projekt wykonany wspólnie z [P. Walkowiakiem](https://github.com/PawelWal), [B. Tlołką](https://github.com/Boguslawa-Tlolka) oraz [J. Wdziękońską](https://github.com/JoannaWdziekonska).
