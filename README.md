@@ -1,4 +1,5 @@
-# System otwierania drzwi przez gości hotelu kwarantannowego wykorzystujący technologię RFID
-Projekt aplikacji dla hotelu kwarantannowego wykonany w ramach przedmiotu Podstawy Internetu Rzeczy
+# Hotel Quarantine Guest Door Opening System Using RFID Technology  
+A project for a quarantine hotel application created as part of the course: Basics of the Internet of Things
 -
-Natywna aplikacja mobilna na system Android.
+
+Native mobile application for Android.
