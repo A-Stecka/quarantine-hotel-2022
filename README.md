@@ -9,7 +9,7 @@ During checkout from the hotel, the guest is required to return the RFID card, w
 
 If a guest still in quarantine uses their card to open the main hotel gate, they will not be allowed to exit. Only guests whose quarantine has ended will be allowed through the gate. Behind the gate is the reception, where the guests check out of the hotel and hand over their cards to the staff.
 
-As part of the project, a web and mobile application were designed using a database. Containerization (Docker) with docker-compose orchestration was used to set up the services. Four services were established: the database, application server, MQTT broker, and web server. The designed mobile application was implemented as a native mobile application for the Android system, and the designed web application was implemented using HTML and JavaScript.
+As part of the project, a web and mobile application were designed. Both applications use a relational database designed for the project. Containerization (Docker) with docker-compose orchestration was used to set up the services. Four services were established: the database, application server, MQTT broker, and web server. The designed mobile application was implemented as a native mobile application for the Android system, and the designed web application was implemented using HTML and JavaScript.
 
 The main branch contains the project documentation. The implementation of the mobile application can be found in the mobile_app branch. The implementation of the main application node (database, application server, MQTT broker, and web server services) can be found in the management_node branch.
 -
