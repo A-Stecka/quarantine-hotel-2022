@@ -1,5 +1,5 @@
 # Hotel Quarantine Guest Door Opening System Using RFID Technology  
-A project for a quarantine hotel application created as part of the Basics of the Internet of Things course
+A project for a quarantine hotel application created as part of the Basics of the Internet of Things course during my engineering degree
 -
 The aim of the project is to create a system that allows guests of a quarantine hotel to automatically open the doors to their rooms and the main gate of the hotel using RFID cards instead of keys.
 
