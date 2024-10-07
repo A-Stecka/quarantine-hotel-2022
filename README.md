@@ -1,4 +1,5 @@
-# System otwierania drzwi przez gości hotelu kwarantannowego wykorzystujący technologię RFID
-Projekt aplikacji dla hotelu kwarantannowego wykonany w ramach przedmiotu Podstawy Internetu Rzeczy
+# Hotel Quarantine Guest Door Opening System Using RFID Technology  
+A project for a quarantine hotel application created as part of the course: Basics of the Internet of Things 
 -
-Implementacja serwisów (serwisy bazy danych, serwera aplikacji, brokera MQTT oraz serwera webowy) wykorzystująca konteneryzację (Docker) z narzędziem orkiestryzacji docker-compose.
+
+Implementation of services (database services, application server, MQTT broker, and web server) using containerization (Docker) with docker-compose orchestration.
